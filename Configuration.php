@@ -29,11 +29,11 @@ define("DATABASE_PREFIX", "");
 /**
  * Email Settings
  */
-define("EMAIL_HOST", "mail.hobesoundequestrianfarms.com");
+define("EMAIL_HOST", "mail.promopanasonic.com");
 define("EMAIL_PORT", "25");
 define("EMAIL_FROM", "no-reply");
-define("EMAIL_USERNAME", "daniel@qwerty.com.bo");
-define("EMAIL_PASSWORD", "qwerty.123.");
+define("EMAIL_USERNAME", "noreply@promopanasonic.com");
+define("EMAIL_PASSWORD", "panasonic.123.");
 define("EMAIL_AUTH", true);
 define("EMAIL_TYPE", "smtp");
 

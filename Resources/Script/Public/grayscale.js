@@ -3,7 +3,7 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
-var urlBase = "http://localhost/panasonic";
+var urlBase = "http://localhost/amelie";
 var caracteres = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var longitud = 10;
 
@@ -165,7 +165,7 @@ function init() {
     map = new google.maps.Map(mapElement, mapOptions);
 
     // Custom Map Marker Icon - Customize the map-marker.png file to customize your icon
-    var image = 'http://localhost/panasonic/Resources/Image/Public/map-marker.png';
+    var image = 'http://localhost/amelie/Resources/Image/Public/map-marker.png';
     var myLatLng = new google.maps.LatLng(-17.767795, -63.183580);
     var beachMarker = new google.maps.Marker({
         position: myLatLng,

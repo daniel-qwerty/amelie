@@ -72,6 +72,12 @@ class Clients_Model_Client extends Com_Module_Model {
         $contact = new Entities_Client();
         return $contact->getAll($contact->getList());
     }
+
+    public function countAll() {
+        $db = new Entities_Client();
+        return $db->getAll("select count(*) as number from {$db}");
+    }
+
      public function getByAlias($strName) {
         $db = new Entities_Client();
         $db->CliName = $strName;
