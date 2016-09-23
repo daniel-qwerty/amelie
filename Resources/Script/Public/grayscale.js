@@ -4,14 +4,14 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 var urlBase = "http://localhost/panasonic";
-var caracteres = "0123456789abcdefABCDEF?¿¡!:;";
+var caracteres = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var longitud = 10;
 
 
 function validarEmail(email) {
     expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if (!expr.test(email)) {
-        swal("Error", "The mailing address is incorrect", "error");
+        swal("Error", "Ingrese un correo electronico valido", "error");
         return false;
     } else
         return true;
@@ -28,7 +28,7 @@ function saveContact(errorMesage, Message) {
 
 
     if (nombre === "" || email === "" || ci === "") {
-        swal("Alert!!", "All fields are required", "warning");
+        swal("Alert!!", "Todos los campos son obligatorios para generar un cupón", "warning");
     } else {
 
         if (validarEmail(email)) {
@@ -37,20 +37,21 @@ function saveContact(errorMesage, Message) {
                 url: urlBase + "/Service/Clients/Save",
                 data: {Name: nombre, Email: email, Ci: ci, City: city, Phone: phone, Cupon: cupon, Status: 0}
             }).done(function (data) {
-                alert(data)
-                if(data!=0)
-                    swal("Received", "Thank you for writing, we will respond shortly.", "success");
+                if (data != 0) {
+                    swal("Received", "Se genero su cupón exitosamente", "success");
+                    $('#name').val("");
+                    $('#email').val("");
+                    $('#ci').val("");
+                    $('#city').val("");
+                    $('#phone').val("");
+                }
                 else
-                    swal("Received", "Thank you for writing, we will respond shortly.", "error");
+                    swal("Lo Siento", "Usted ya generó un cupón anteriormente", "error");
 
             }).fail(function () {
 
             });
-            $('#name').val("");
-            $('#email').val("");
-            $('#ci').val("");
-            $('#city').val("");
-            $('#phone').val("");
+
         }
 
 

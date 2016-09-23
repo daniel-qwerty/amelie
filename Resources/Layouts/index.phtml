@@ -164,7 +164,7 @@
             <form method="post">
 
                 <input type="text" name="name" id="name" value="" placeholder="Nombre:" class="form-control">
-                <input type="text" name="ci" id="ci" value="" placeholder="Carnet de identidad:" class="form-control">
+                <input type="number" name="ci" id="ci" value="" placeholder="Carnet de identidad:" class="form-control">
 
                 <select name="city" id="city" class="form-control unselected">
                     <option value="" selected data-default>Ciudad:</option>
@@ -179,8 +179,8 @@
                     <option value="Posoti">Potosi</option>
                 </select>
 
-                <input type="text" name="phone" id="phone" value="" placeholder="Telefono:" class="form-control">
-                <input type="text" name="email" id="email" value="" placeholder="E-mail:" class="form-control">
+                <input type="number" name="phone" id="phone" value="" placeholder="Telefono:" class="form-control">
+                <input type="email" name="email" id="email" value="" placeholder="E-mail:" class="form-control">
 
                 <button type="button" class="btn" onclick="saveContact('error message', 'enviado');">Enviar</button>
 
