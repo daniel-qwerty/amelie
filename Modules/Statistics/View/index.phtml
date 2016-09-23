@@ -1,0 +1,55 @@
+<?php ?>
+<div class="formulario panel panel-primary">
+    <div class="title panel-heading">Visitas de los &uacute;ltimos 15 dias</div>
+    <form>
+        <br>
+        <br>
+        <div class="container">
+            <?PHP
+            $intTotalVisitas = 0;
+            $lstPaginasVisitadas = array();
+            foreach ($this->Statistics as $intIndex => $obj) {
+                $intTotalVisitas+=1;
+                if (!(in_array($obj->VisUrl, $lstPaginasVisitadas))) {
+                    $lstPaginasVisitadas[] = $obj->VisUrl;
+                }
+            }
+            ?>
+            Cantidad de Visitas: <?PHP echo $intTotalVisitas; ?>
+            <br>
+            <br>
+            P&aacute;ginas Visitas : <?PHP echo count($lstPaginasVisitadas); ?>
+        </div>
+        <br>
+        <center>
+            <div class="table">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr class="cabecera">
+                            <th width="150px">Fecha</td>
+                            <th width="150px">Idioma</td>
+                            <th width="150px">Pais</td>
+                            <th width="550px">Url</td>
+                            <th width="250px">Ip</td>
+                            <th width="150px">Cantidad</td>
+                        </tr>
+                    </thead>
+                    <?PHP
+                    foreach ($this->Statistics as $intIndex => $obj) {
+                        ?>
+                        <tr class="<?PHP echo ($intIndex % 2 == 0 ? 'blanca' : 'gris') ?>">
+                            <td align="center"><?PHP echo getLatinDate($obj->VisDate); ?></td>
+                            <td><?PHP echo $obj->LanName; ?></td>
+                            <td><?PHP echo $obj->CouName; ?></td>
+                            <td><?PHP echo $obj->VisUrl; ?></td>
+                            <td><?PHP echo $obj->VisIp; ?></td>
+                            <td><?PHP echo $obj->Cantidad; ?></td>
+                        </tr>
+                        <?PHP
+                    }
+                    ?>
+                </table>
+            </div>
+        </center>
+    </form>
+</div>

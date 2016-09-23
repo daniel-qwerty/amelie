@@ -1,0 +1,32 @@
+            <div class="cuerpo">
+                <table>
+    <tr class="cabecera">
+        <td>Nro.</td>
+        <td>Idioma</td>
+        <td>Nombre</td>
+        <td>Correo Electronico</td>
+        <td>Mensaje</td>
+        <td>Fecha de Registro</td>
+    </tr>
+            <tr class="blanco">
+            <td>1</td>
+            <td>Español</td>
+            <td>juyhhy</td>
+            <td>das@jui.com</td>
+            <td>hola mund</td>
+            <td>2016-07-06 12:02:57</td>
+        </tr>
+                <tr class="gris">
+            <td>2</td>
+            <td>Español</td>
+            <td>ad</td>
+            <td>da@hdds.com</td>
+            <td>da</td>
+            <td>2016-07-08 09:57:59</td>
+        </tr>
+        </table>
+            </div>
+            <div class="pieReporte">
+                Sinapsis Digital
+            </div>
+            

@@ -1,0 +1,242 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title> Hotel</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel='stylesheet' id='open-sans-css'
+          href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.1'
+          type='text/css' media='all'/>
+    <link
+        href="//fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700,800%7CPlayfair+Display:400,400italic,700,900&amp;subset=greek,latin,latin"
+        rel="stylesheet" type="text/css">
+
+
+    <!-- Fav and Touch Icons -->
+    <meta name="msapplication-TileColor" content="#d9534f">
+    <meta name="msapplication-TileImage"
+          content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/ms-icon-144x144.png">
+    <meta name="msapplication-config"
+          content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public//favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="57x57"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-32x32.png"
+          sizes="32x32">
+    <link rel="icon" type="image/png"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/android-192x192.png"
+          sizes="192x192">
+    <link rel="icon" type="image/png"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-96x96.png"
+          sizes="96x96">
+    <link rel="icon" type="image/png"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-16x16.png"
+          sizes="16x16">
+    <link rel="manifest" href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/manifest.json">
+    <link rel="shortcut icon"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon.ico"
+          type="image/x-icon"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+          type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <?PHP
+    Com_Helper_Style::getInstance()
+        ->addFile("Public/bootstrap.min.css")
+        ->addFile("Public/font-awesome.min.css")
+        ->addFile("Public/grayscale.css")
+        ->addFile("Public/fonts.css")
+        ->addFile("Public/sweetalert.css")
+        ->addFile("Public/slick.css");
+
+    echo Com_Helper_Style::getInstance();
+    ?>
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+        <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'logo')->ImgFile; ?>" alt="">
+
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Intro Header -->
+<header class="intro">
+    <div class="intro-body">
+
+    </div>
+</header>
+
+<!-- About Section -->
+<section id="modelos" class="container-fluid text-center">
+    <div class="row">
+        <div class="container">
+            <h2><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleModelos')->TxtDescription; ?></h2>
+            <div class="row modelo-container">
+
+                <div class="modelo-item">
+                    <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'heladera-bt48')->ImgFile; ?>" alt="bt48" class="img-responsive">
+                    <div class="heladera-hover">
+                        <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'heladera-hover')->ImgFile; ?>" alt="" class="img-responsive">
+                        <?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'heladera-bt48')->ImgDescription; ?>
+                    </div>
+                </div>
+
+                <div class="col-md-3 modelo-item">
+                    <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'heladera-bt54')->ImgFile; ?>" alt="bt48" class="img-responsive">
+                    <div class="heladera-hover">
+                        <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'heladera-hover')->ImgFile; ?>" alt="" class="img-responsive">
+                        <?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'heladera-bt54')->ImgDescription; ?>
+                    </div>
+                </div>
+
+                <div class="col-md-3 modelo-item">
+                    <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'heladera-bb52pv2')->ImgFile; ?>" alt="bt48" class="img-responsive">
+                    <div class="heladera-hover">
+                        <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'heladera-hover')->ImgFile; ?>" alt="" class="img-responsive">
+                        <?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'heladera-bb52pv2')->ImgDescription; ?>
+                    </div>
+                </div>
+
+                <div class="col-md-3 modelo-item">
+                    <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'heladera-bb521')->ImgFile; ?>" alt="bt48" class="img-responsive">
+                    <div class="heladera-hover">
+                        <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'heladera-hover')->ImgFile; ?>" alt="" class="img-responsive">
+                        <?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'heladera-bb521')->ImgDescription; ?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <img class="img-responsive" src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'econavi')->ImgFile; ?>" alt="">
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <img class="img-responsive" src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'inverter')->ImgFile; ?>" alt="">
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <img class="img-responsive" src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'agClean')->ImgFile; ?>" alt="">
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <img class="img-responsive" src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'vitaminSafe')->ImgFile; ?>" alt="">
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <img class="img-responsive" src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'japan')->ImgFile; ?>" alt="">
+                </div>
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <img class="img-responsive" src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'garantia')->ImgFile; ?>" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Download Section -->
+<section id="suscribir" class="text-center">
+    <div class="container">
+        <div class="col-lg-8 col-lg-offset-2 form">
+            <div class="header"></div>
+            <h2><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleFormulario')->TxtDescription; ?></h2>
+            <form method="post">
+
+                <input type="text" name="name" id="name" value="" placeholder="Nombre:" class="form-control">
+                <input type="text" name="ci" id="ci" value="" placeholder="Carnet de identidad:" class="form-control">
+
+                <select name="city" id="city" class="form-control unselected">
+                    <option value="" selected data-default>Ciudad:</option>
+                    <option value="Santa Cruz">Santa Cruz</option>
+                    <option value="Beni">Beni</option>
+                    <option value="Pando">Pando</option>
+                    <option value="Cochabamba">Cochabamba</option>
+                    <option value="Sucre">Sucre</option>
+                    <option value="Tarija">Tarija</option>
+                    <option value="La Paz">La Paz</option>
+                    <option value="Oruro">Oruro</option>
+                    <option value="Posoti">Potosi</option>
+                </select>
+
+                <input type="text" name="phone" id="phone" value="" placeholder="Telefono:" class="form-control">
+                <input type="text" name="email" id="email" value="" placeholder="E-mail:" class="form-control">
+
+                <button type="button" class="btn" onclick="saveContact('error message', 'enviado');">Enviar</button>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<!-- Map Section -->
+<div id="map"></div>
+<!-- Contact Section -->
+<section id="contact" class="container-fluid text-center">
+    <div class="row">
+        <div class="container col-md-8 col-md-offset-2">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'madisa')->ImgFile; ?>" class="img-responsive" alt="">
+                </div>
+                <div class="col-sm-4 col-xs-6">
+                    <h3><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleDistribuye')->TxtDescription; ?></h3>
+                    <p><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'contentDistribuye')->TxtDescription; ?></p>
+                </div>
+                <div class="col-sm-4 col-xm-6">
+                    <h3><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleHorarios')->TxtDescription; ?></h3>
+                    <p><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'contentHorarios')->TxtDescription; ?></p>
+                    <a href="#">Link</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Plugin JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+<!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+
+<?php
+Com_Helper_Script::getInstance()
+    ->addFile("Public/jquery.js")
+    ->addFile("Public/bootstrap.min.js")
+    ->addFile("Public/slick.min.js")
+    ->addFile("Public/grayscale.js")
+    ->addFile("Public/sweetalert.min.js")
+    ->addFile("Public/slick.min.js");
+echo Com_Helper_Script::getInstance();
+?>
+
+</body>
+
+
+</html>

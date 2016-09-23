@@ -1,0 +1,58 @@
+<?PHP
+
+$form = new Com_Wizard_Form();
+$form->title = "Formulario SlideShows";
+
+$form->addAction("floppy-disk", "Guardar", null, "document.getElementById('saveForm').click();");
+$form->addAction("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . "/Admin/SlideShows");
+
+$form->addTab("Idioma por Defecto (" . $this->languages[0]->LanName . ")", "", true);
+
+$control = new Com_Wizard_Form_Control_Hidden();
+$control->name = "Language";
+$control->default = $this->Language;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Title";
+$control->label = "Titulo";
+$control->default = $this->Title;
+$control->length = 50;
+$control->required = true;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Text();
+$control->name = "Description";
+$control->label = "Descripcion";
+$control->default = $this->Description;
+$control->required = false;
+$control->rows = 3;
+$control->addParameter("style ", "height:120px;");
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_File();
+$control->name = "Image";
+$control->label = "Imagen";
+$control->default = $this->Image;
+$control->required = true;
+$control->isImage = true;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Link";
+$control->label = "Link Imagen";
+$control->default = $this->Link;
+$control->length = 50;
+$control->required = false;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Select();
+$control->name = "Status";
+$control->label = "Estado";
+$control->default = $this->Status;
+$control->required = true;
+$control->addItem('1', 'Habilitado');
+$control->addItem('0', 'Bloqueado');
+$form->add($control);
+
+$form->render();

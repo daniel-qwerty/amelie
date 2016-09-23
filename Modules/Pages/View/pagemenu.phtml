@@ -1,0 +1,45 @@
+<div class="background">
+    <img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/fondo2.jpg">
+</div>
+<div class="container forBlock">
+    <div class="title">
+        <?PHP
+        echo $this->page->PagName;
+        ?>
+    </div>
+    <div class="clearfix"></div>
+    <div class="blocks">
+        <?PHP
+        foreach ($this->childs as $child) {
+            $url = Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, $child->MenUrl);
+            if ($child->MenTarget == "_blank") {
+                $url = $child->MenUrl;
+            }
+            ?>
+            <div class="block">
+                <a href="<?PHP echo $url; ?>">
+                    <div class="description">
+                        <?PHP echo $child->MenDescription; ?>
+                    </div>
+                    <div class="link">
+                        <?PHP echo $child->MenAlias; ?>
+                    </div>
+                </a>
+            </div>
+            <?PHP
+        }
+        ?>
+    </div>
+    <div class="clearfix"></div>
+    <div class="text">
+        <?PHP
+        echo $this->page->PagContent;
+        ?>
+    </div>
+
+    <div class="image">
+        <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo $this->page->PagImage; ?>">
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>

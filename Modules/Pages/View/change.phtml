@@ -1,0 +1,83 @@
+<div class="background">
+    <img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/background_change_theory.jpg">
+</div>
+<div class="container">
+    <div class="title">
+        <?PHP
+        echo $this->page->PagName;
+        ?>
+    </div>
+    <div class="text">
+        <?PHP
+        echo $this->page->PagContent;
+        ?>
+    </div>
+
+    <div class="image">
+        <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo $this->page->PagImage; ?>">
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<div class="project">
+    <div class="container ">
+        <div class="title2">
+            <?PHP
+                echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleGeneracion')->TxtDescription;
+            ?>
+        </div>
+        <div class="text">
+            <?PHP
+                echo Texts_Helper_Text::getInstance()->get($this->lan, 'contentGeneracion')->TxtDescription;
+            ?>
+        </div>
+        <div class="title2">
+            <?PHP
+                echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleSeguridad')->TxtDescription;
+            ?>
+        </div>
+        <div class="text">
+            <?PHP
+                echo Texts_Helper_Text::getInstance()->get($this->lan, 'contentSeguridad')->TxtDescription;
+            ?>
+        </div>
+        <div class="title2">
+            <?PHP
+                echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleAmbiente')->TxtDescription;
+            ?>
+        </div>
+        <div class="text">
+            <?PHP
+                echo Texts_Helper_Text::getInstance()->get($this->lan, 'contentAmbiente')->TxtDescription;
+            ?>
+        </div>
+        <div class="title2">
+            <?PHP
+                echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleEmpoderamiento')->TxtDescription;
+            ?>
+        </div>
+        <div class="text">
+            <?PHP
+                echo Texts_Helper_Text::getInstance()->get($this->lan, 'contentEmpoderamiento')->TxtDescription;
+            ?>
+        </div>
+        <div class="title2">
+            <?PHP
+                echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleCapital')->TxtDescription;
+            ?>
+        </div>
+        <div class="text">
+            <?PHP
+                echo Texts_Helper_Text::getInstance()->get($this->lan, 'contentCapital')->TxtDescription;
+            ?>
+        </div>
+        <div class="link">
+            <a href="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'CHANGE_URL')->TxtDescription; ?>">
+                <?PHP echo $this->translator->seeProjects; ?>
+            </a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>

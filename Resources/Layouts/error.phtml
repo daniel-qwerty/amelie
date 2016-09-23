@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title><?PHP echo $this->translator->pageTitle; ?></title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="none">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">  
+        <link rel="shortcut icon" href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicon.ico" type="image/x-icon"/>
+        <?PHP
+        Com_Helper_Style::getInstance()->addFile("Public/font-awesome.css")
+                ->addFile("Public/fonts.css")
+                ->addFile("Public/style.css")
+                ->addFile("Public/responsive.css");
+
+        echo Com_Helper_Style::getInstance();
+        ?>
+    </head>
+    <body>
+        <div class="error">
+            <div class="image">
+                <span class="icon-Heifer"></span>
+            </div>
+            <div class="message">
+                <?PHP //echo $this->translator->errorMessage; ?>
+            </div>
+            <div class="button">
+                <a href="<?PHP echo Com_Helper_Url::getInstance()->urlBase; ?>"><?PHP //echo $this->translator->errorButton; ?></a>
+            </div>
+        </div>
+    </body>
+</html>

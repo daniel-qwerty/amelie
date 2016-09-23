@@ -1,0 +1,23 @@
+<?PHP
+
+$db = new Entities_Text();
+$grid = new Com_Wizard_Grid();
+$grid->title = "Listado Textos";
+$grid->setIdField("TxtId");
+$grid->setLanField("TxtLanId");
+$grid->setQuery($db->getListWithLanguages());
+$grid->setAlias(array("LanName" => "Idioma", "TxtAlias" => "Alias", "TxtDescription" => "Description", "TxtStatus" => "Estado"));
+$grid->setFilters(array("TxtAlias" => get('TxtAlias')));
+
+$toolBar = new Com_Wizard_ToolBar();
+$toolBar->add("plus", "Nuevo", Com_Helper_Url::getInstance()->urlBase . '/Admin/Texts/Add');
+$toolBar->add("search", "Filtrar", null, "showHide('.filters')");
+$toolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . '/Admin');
+$grid->setToolBar($toolBar);
+
+$grid->addAction("pencil", "Editar", Com_Helper_Url::getInstance()->urlBase . '/Admin/Texts/Edit/lan/_LANGUAGE_/id/_ID_');
+$grid->addAction("trash", "Eliminar", null, "confirm('Esta seguro de eliminar el registro?')?location.href='" . Com_Helper_Url::getInstance()->urlBase . '/Admin/Texts/Delete/id/_ID_' . "':'';");
+
+$grid->customField("TxtStatus", array("value" => array('1' => 'Habilitado', '0' => 'Bloqueado')));
+
+$grid->render();

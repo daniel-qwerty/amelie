@@ -1,0 +1,208 @@
+body{padding: 0;}
+.form-login{
+    margin-top:35px;
+}
+
+.form-control-separator{
+    margin-bottom:10px;
+}
+
+.form-contro-date .form-control{
+    display: inline !important;
+}
+
+.btn-group{
+    float: right;
+}
+
+.toolBar{
+    clear: both;
+}
+
+.formulario .title{
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.table .componente{
+    width:95%;
+    text-align: right;
+    display:block;
+    position: relative;
+    clear:both;
+    margin:0% 2.5%;
+}
+
+.bs-glyphicons {
+    margin: 0 -10px 20px;
+    overflow: hidden;
+    padding-top: 3%;
+}
+.bs-glyphicons-list {
+    list-style: none outside none;
+    padding-left: 0;
+}
+
+.bs-glyphicons li {
+    cursor:pointer;
+    float: left;    
+    text-align: center;
+}
+
+.bs-glyphicons li a{
+    height: 106px;
+    width: 150px;
+    display: block;
+    position: relative;
+    padding: 30px 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    background-color: #009626;
+    border: 1px solid #fff;
+}
+
+.bs-glyphicons li a:hover{
+    color:#fff;
+    border: 1px solid #004216;
+    background-color: #004216;
+}
+
+.glyphicon {
+    font-size: 14px;
+}
+
+.dashboard .glyphicon {
+    font-size: 24px;
+}
+
+div.tagsinput { border:1px solid #CCC; background: #FFF; padding:5px; width:300px; height:100px; overflow-y: auto;}
+div.tagsinput span.tag { border: 1px solid #a5d24a; -moz-border-radius:2px; -webkit-border-radius:2px; display: block; float: left; padding: 5px; text-decoration:none; background: #cde69c; color: #638421; margin-right: 5px; margin-bottom:5px;font-family: helvetica;  font-size:13px;}
+div.tagsinput span.tag a { font-weight: bold; color: #82ad2b; text-decoration:none; font-size: 11px;  } 
+div.tagsinput input { width:80px; margin:0px; font-family: helvetica; font-size: 13px; border:1px solid transparent; padding:5px; background: transparent; color: #000; outline:0px;  margin-right:5px; margin-bottom:5px; }
+div.tagsinput div { display:block; float: left; } 
+.tags_clear { clear: both; width: 100%; height: 0px; }
+.not_valid {background: #FBD8DB !important; color: #90111A !important;}
+
+
+.filters,
+.paginations{
+    display:block;
+    padding:1% 5%;
+    width:100%;
+    clear:both;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border:1px solid #008CBA;
+}
+
+:required:focus {
+    border:1px solid red;
+}
+
+.imageViewer{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+
+.imageViewer li{
+    min-width:23%;
+    margin:0.5%;
+    padding:0.5%;
+    float:left;
+    display:block;
+    position:relative;
+    background-color: #EEEEEE;
+    min-width: 215px;
+    overflow: hidden;
+}
+
+
+.imageViewer li:hover{
+    background-color: #006687;
+}
+.imageViewer li img{
+    float:left;
+    display:block;
+    position:relative;
+    margin-bottom:1%;
+}
+
+.imageViewer li input{
+    width:100%;
+    margin-bottom: 1%;
+}
+
+.imageViewer li textarea{
+    width:100%;
+    height: 100px !important;
+    margin-bottom: 1%;
+}
+
+.imageViewer li a{
+    text-decoration: none;
+    text-align: center;
+    cursor:pointer;
+    background-color: #008CBA;
+    color:#FFF;
+}
+
+.imageViewer li a:hover{
+    background-color: #EEEEEE;
+    color:#008CBA;
+}
+
+.fileUploader img{
+    max-width: 300px; 
+    border:2px solid #008CBA;
+    padding:5px;
+    background-color: #EEEEEE;
+    margin-bottom: 1%;
+}
+
+.tree{
+    float:left;
+    display:block;
+    position:relative;
+    border:1px solid #cccccc;
+    clear:both;
+    padding:1%;
+    width:98%;
+}
+
+.tree .node{
+    float:left;
+    display:block;
+    position:relative;
+    clear:both;
+}
+
+.tree .node .properties,
+.tree .node .child{
+    float:left;
+    display:block;
+    position:relative;
+    clear:both;
+}
+
+.tree .node .properties .ratio,
+.tree .node .properties .alias{
+    float:left;
+    display:block;
+    position:relative;
+}
+
+.tree .node .properties .alias{
+    margin-left:5px;
+    cursor:pointer;
+    font-style: italic;
+}
+
+.tree .node .child{
+    margin-left:15px;
+}

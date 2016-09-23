@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title><?PHP echo APP_TITLE; ?></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="robots" content="none">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+    <?PHP
+    Com_Helper_Style::getInstance()->addFile("Admin/bootstrap.css")
+        ->addFile("Admin/bootstrap.min.css")
+        ->addFile("Admin/admin.css")
+        ->addFile("Admin/modern.css")
+        ->addFile("Admin/themes/white.css")
+        ->addFile("Admin/custom.css");
+
+    Com_Helper_Script::getInstance()->addFile("Admin/jquery.min.js")
+        ->addFile("Admin/bootstrap.js")
+        ->addFile("Admin/admin.js");
+
+    echo Com_Helper_Style::getInstance();
+    ?>
+</head>
+<body class="page-header-fixed">
+<div class="page-title">
+    <h3><?PHP echo APP_TITLE; ?></h3>
+</div>
+<div id="main-wrapper">
+    <div class="container">
+        <?PHP Com_Wizard_Messages::getInstance()->render(); ?>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <?PHP
+                    echo $this->getContent();
+                ?>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!--FOOTER QWERTY-->
+<?PHP Pages_Widget_Footer::getInstance()->render(); ?>
+<?PHP
+echo Com_Helper_Script::getInstance();
+?>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<?PHP
+
+$form = new Com_Wizard_Form();
+$form->title = "Formulario Links";
+
+$form->addAction("floppy-disk", "Guardar", null, "document.getElementById('saveForm').click();");
+$form->addAction("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . "/Admin/Links");
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Name";
+$control->label = "Nombre";
+$control->default = $this->Name;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Url";
+$control->label = "URL";
+$control->default = $this->Url;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Select();
+$control->name = "Status";
+$control->label = "Estado";
+$control->default = $this->Status;
+$control->required = true;
+$control->addItem('1', 'Leido');
+$control->addItem('0', 'No Leido');
+$form->add($control);
+
+$form->render();

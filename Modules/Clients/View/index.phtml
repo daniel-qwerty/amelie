@@ -1,0 +1,23 @@
+<?PHP
+
+$db = new Entities_Client();
+$grid = new Com_Wizard_Grid();
+$grid->title = "Listado de Clientes";
+$grid->setIdField("CliId");
+$grid->setQuery($db->getList());
+$grid->setAlias(array("CliId" => "ID","CliName" => "Nombre", "CliCi" => "C.I.", "CliCity" => "Ciudad","CliStatus" => "Estado"));
+$grid->setFilters(array("CliName" => get('CliName')));
+$grid->setFilters(array("CliCi" => get('CliCi')));
+
+$toolBar = new Com_Wizard_ToolBar();
+$toolBar->add("plus", "Nuevo", Com_Helper_Url::getInstance()->urlBase . '/Admin/Clients/Add');
+$toolBar->add("search", "Filtrar", null, "showHide('.filters')");
+$toolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . '/Admin');
+$grid->setToolBar($toolBar);
+
+$grid->addAction("pencil", "Editar", Com_Helper_Url::getInstance()->urlBase . '/Admin/Clients/Edit/id/_ID_');
+$grid->addAction("trash", "Eliminar", null, "confirm('Esta seguro de eliminar el registro?')?location.href='" . Com_Helper_Url::getInstance()->urlBase . '/Admin/Clients/Delete/id/_ID_' . "':'';");
+
+$grid->customField("CliStatus", array("value" => array('1' => 'Leido', '0' => 'No Leido')));
+
+$grid->render();

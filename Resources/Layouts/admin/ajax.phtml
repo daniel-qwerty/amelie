@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title><?PHP echo APP_TITLE; ?></title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="none">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">  
+        <?PHP
+        Com_Helper_Style::getInstance()->addFile("bootstrap.css")
+                ->addFile("datepicker.css")
+                ->addFile("bootstrap.min.css")
+                ->addFile("jquery.ui.css")
+                ->addFile("admin.css")
+                ->addFile("editor.css")
+                ->addFile("font-awesome.css");
+
+        Com_Helper_Script::getInstance()->addFile("jquery.min.js")
+                ->addFile("jquery.ui.js")
+                ->addFile("jquery.taginput.js")
+                ->addFile("jqbrowser.js")
+                ->addFile("bootstrap.js")
+                ->addFile("editor.js")
+                ->addFile("datepicker.js")
+                ->addFile("admin.js");
+
+        echo Com_Helper_Style::getInstance();
+        ?>
+    </head>
+    <body style="padding-top:0px;">
+        <div class="container" style="width:100%;">
+            <?PHP
+            $this->getContent();
+            ?>
+        </div>
+        <?PHP
+        echo Com_Helper_Script::getInstance();
+        ?>
+        <script type="text/javascript">
+            urlBase = '<?PHP echo Com_Helper_Url::getInstance()->urlBase; ?>';
+        </script>
+
+    </body>
+</html>

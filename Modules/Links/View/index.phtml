@@ -1,0 +1,22 @@
+<?PHP
+
+$db = new Entities_Links();
+$grid = new Com_Wizard_Grid();
+$grid->title = "Listado de Links";
+$grid->setIdField("LinId");
+$grid->setQuery($db->getList());
+$grid->setAlias(array("LinName" => "Nombre", "LinUrl" => "URL", "LinStatus" => "Estado"));
+$grid->setFilters(array("LinName" => get('LinName')));
+
+$toolBar = new Com_Wizard_ToolBar();
+$toolBar->add("plus", "Nuevo", Com_Helper_Url::getInstance()->urlBase . '/Admin/Links/Add');
+$toolBar->add("search", "Filtrar", null, "showHide('.filters')");
+$toolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . '/Admin');
+$grid->setToolBar($toolBar);
+
+$grid->addAction("pencil", "Editar", Com_Helper_Url::getInstance()->urlBase . '/Admin/Links/Edit/id/_ID_');
+$grid->addAction("trash", "Eliminar", null, "confirm('Esta seguro de eliminar el registro?')?location.href='" . Com_Helper_Url::getInstance()->urlBase . '/Admin/Links/Delete/id/_ID_' . "':'';");
+
+$grid->customField("LinStatus", array("value" => array('1' => 'Leido', '0' => 'No Leido')));
+
+$grid->render();

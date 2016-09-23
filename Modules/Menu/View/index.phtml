@@ -1,0 +1,25 @@
+<?PHP
+
+$db = new Entities_Menu();
+$grid = new Com_Wizard_Grid();
+$grid->title = "Listado Menu";
+$grid->setIdField("MenId");
+$grid->setLanField("MenLanId");
+$grid->setQuery($db->getWithParents());
+$grid->setAlias(array("LanName" => "Idioma", "padre" => "Raiz", "MenAlias" => "Alias", "MenUrl" => "Url", "MenStatus" => "Estado"));
+$grid->setFilters(array("Menu.MenAlias" => get('Menu_MenAlias')));
+
+$toolBar = new Com_Wizard_ToolBar();
+$toolBar->add("glyphicon glyphicon-plus", "Nuevo", Com_Helper_Url::getInstance()->urlBase . '/Admin/Menu/Add');
+$toolBar->add("sort", "Ordenar", Com_Helper_Url::getInstance()->urlBase . '/Admin/Menu/Order');
+$toolBar->add("search", "Filtrar", null, "showHide('.filters')");
+$toolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . '/Admin');
+
+$grid->setToolBar($toolBar);
+
+$grid->addAction("pencil", "Editar", Com_Helper_Url::getInstance()->urlBase . '/Admin/Menu/Edit/lan/_LANGUAGE_/id/_ID_');
+$grid->addAction("trash", "Eliminar", null, "confirm('Esta seguro de eliminar el registro?')?location.href='" . Com_Helper_Url::getInstance()->urlBase . '/Admin/Menu/Delete/id/_ID_' . "':'';");
+
+$grid->customField("MenStatus", array("value" => array('1' => 'Habilitado', '0' => 'Bloqueado')));
+
+$grid->render();

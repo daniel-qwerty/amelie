@@ -1,0 +1,66 @@
+<?PHP
+
+$form = new Com_Wizard_Form();
+$form->title = "Formulario Clientes";
+
+$form->addAction("floppy-disk", "Guardar", null, "document.getElementById('saveForm').click();");
+$form->addAction("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . "/Admin/Clients");
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Name";
+$control->label = "Nombre";
+$control->default = $this->Name;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Ci";
+$control->label = "C.I.";
+$control->default = $this->Ci;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "City";
+$control->label = "Ciudad";
+$control->default = $this->City;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Phone";
+$control->label = "Telefono";
+$control->default = $this->Phone;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Email";
+$control->label = "Email";
+$control->default = $this->Email;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Cupon";
+$control->label = "Cupon";
+$control->default = $this->Cupon;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Select();
+$control->name = "Status";
+$control->label = "Estado";
+$control->default = $this->Status;
+$control->required = true;
+$control->addItem('1', 'Leido');
+$control->addItem('0', 'No Leido');
+$form->add($control);
+
+$form->render();

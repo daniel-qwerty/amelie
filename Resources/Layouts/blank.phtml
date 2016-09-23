@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title><?PHP echo $this->translator->pageTitle; ?></title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="none">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">  
+        <link rel="shortcut icon" href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicon.ico" type="image/x-icon"/>
+        <?PHP
+        Com_Helper_Style::getInstance()->addFile("Public/font-awesome.css")
+                ->addFile("Public/reset.css")
+                ->addFile("Public/grid.css")
+                ->addFile("Public/fonts.css")
+                ->addFile("Public/jbox.css")
+                ->addFile("Public/style.css")
+                ->addFile("Public/page.css")
+                ->addFile("Public/responsive.css");
+
+        Com_Helper_Script::getInstance()->addFile("Public/jquery.min.js")
+                ->addFile("Public/jquery.slidejs.min.js")
+                ->addFile("Public/jquery.jbox.min.js")
+                ->addFile("Public/public.js");
+
+        echo Com_Helper_Style::getInstance();
+        ?>
+    </head>
+    <body>
+        <div class="header scroolled" change="0">
+            <div class="logo">
+                <div class="image">
+                    <span class="icon-Heifer"></span>
+                </div>
+            </div>
+            <div class="responsiveIcon">
+                <a><span class="fa fa-bars"></span></a>
+            </div>
+            <div class="menu">
+                <div class="main">
+                    <?PHP
+                    Menu_Widget_Menu::getInstance()->setLan($this->lan)->setParent(1)->render();
+                    ?>
+                </div>
+                <div class="submenu">
+                    <div class="search">
+                        <form method="post">
+                            <img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/search.png">
+                            <input type="text" name="pattern" id="pattern" placeholder="<?PHP echo $this->translator->searchPlaceHolder; ?>" value="<?PHP echo get('pattern'); ?>">
+                        </form>
+                    </div>
+                    <?PHP
+                    Menu_Widget_Menu::getInstance()->setLan($this->lan)->setParent(2)->render();
+                    ?>
+                </div>
+            </div>
+            <div class="reponsiveMenu">
+                <?PHP
+                Menu_Widget_Responsive::getInstance()->setLan($this->lan)->setParent(2)->render();
+                ?>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="mainContainer">
+            <?PHP
+            $this->getContent();
+            ?>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="contact">
+            <div class="container">  
+                <div class="grid grid7">
+                    <div class="grid grid6">
+                        <div class="title">
+                            <?PHP echo $this->translator->internalLinks; ?>
+                        </div>
+                        <div class="links">
+                            <?PHP
+                            Menu_Widget_Menu::getInstance()->setLan($this->lan)->setParent(61)->render();
+                            ?>
+                        </div>
+                    </div>
+                    <div class="grid grid6">
+                        <div class="title">
+                            <?PHP echo $this->translator->blogLinks; ?>
+                        </div>
+                        <div class="links">
+                            <?PHP
+                            Menu_Widget_Menu::getInstance()->setLan($this->lan)->setParent(11)->render();
+                            ?>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="grid grid12">
+                        <a class="image" href="http://www.heifer.org/" target="_blank">
+                            <img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/heifer-logo.png" border="0"/>
+                        </a>
+                        <a class="image" href="http://www.interaction.org/member/heifer-international" target="_blank">
+                            <img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/inter-action-logo.png" border="0"/>
+                        </a>
+                        <?PHP
+                        $message = Texts_Helper_Text::getInstance()->get($this->lan, "CERTIFICATION_TEXT")->TxtDescription;
+                        ?>
+                        <a class="image iso" href="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, "CERTIFICATION_URL")->TxtDescription; ?>" target="_blank" title="<?PHP echo $message; ?>">
+                            <img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/iso.png" border="0" alt="<?PHP echo $message; ?>"/>
+                        </a>
+                        <!--
+                        <a class="image" href="http://www.guidestar.org/organizations/35-1019477/heifer-project-international.aspx" target="_blank">
+                            <img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/guide-star-logo.png" border="0"/>
+                        </a>
+                        <a class="image" href="http://give.org/charity-reviews/national/relief-and-development/heifer-project-international-in-little-rock-ar-569" target="_blank">
+                            <img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/bbb-logo.png" border="0"/>
+                        </a>
+                        <a class="image" href="http://hiltonfoundation.org/heifer-international-2004" target="_blank">
+                            <img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/penny-logo.png" border="0"/>
+                        </a>
+                        <a class="image" href="http://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=3809" target="_blank">
+                            <img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/charity-navigator-bw.png" border="0"/>
+                        </a>
+                        -->
+                    </div>
+                </div>
+                <div class="grid grid5">
+                    <div class="title">
+                        <?PHP echo $this->translator->contactTitle; ?>
+                    </div>
+                    <div class="form">
+                        <form method="post">
+                            <input type="text" name="name" id="name" placeholder="<?PHP echo $this->translator->name; ?>">
+                            <input type="text" name="email" id="email" placeholder="<?PHP echo $this->translator->email; ?>">
+                            <textarea  name="message" id="message" placeholder="<?PHP echo $this->translator->message; ?>"></textarea>
+                            <input type="button" value="<?PHP echo $this->translator->send; ?>" onclick="saveContact('<?PHP echo $this->translator->contactErrorMessage; ?>', '<?PHP echo $this->translator->contactMessage; ?>',<?PHP echo $this->lan->LanId; ?>);">
+                        </form>
+                    </div>
+                    <div class="info">
+                        <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'contactInfo')->TxtDescription; ?>
+                    </div>
+                    <div class="socialMedia">
+                        <a href="http://www.facebook.com/heiferbolivia" target="_blank"><span class="fa fa-facebook"></span></a>
+                        <a href="http://twitter.com/HeiferBolivia" target="_blank"><span class="fa fa-twitter"></span></a>
+                        <a href="http://www.youtube.com/channel/UCvYFA4Ptdtr6SNApjUJJ1XQ" target="_blank"><span class="fa fa-youtube"></span></a>
+                        <a href="https://plus.google.com/115150100666251021187" target="_blank"><span class="fa fa-google-plus"></span></a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="footer">
+            <div class="container">  
+                <div class="menu">
+                    <?PHP
+                    Menu_Widget_Menu::getInstance()->setLan($this->lan)->setParent(14)->render();
+                    ?>
+                </div>
+                <?PHP
+                echo Texts_Helper_Text::getInstance()->get($this->lan, 'footer')->TxtDescription;
+                ?>
+            </div>
+        </div>
+        <!--Modal Suscripcion-->
+        <div class="modalWindow2">
+            <div class="title">
+                <?PHP
+                echo $this->translator->suscription;
+                ?>
+            </div>
+            <div class="content">
+                <div class="message">
+                    <?PHP
+                    echo Texts_Helper_Text::getInstance()->get($this->lan, "SUSCRIPTION")->TxtDescription;
+                    ?>
+                </div>
+                <form method="post" class="registerForm">
+                    <input type="text" name="email" id="email" placeholder="<?PHP echo $this->translator->email; ?>">
+                    <input type="button" value="<?PHP echo $this->translator->send; ?>" onclick="saveEmail('<?PHP echo $this->translator->contactErrorMessage; ?>', '<?PHP echo $this->translator->contactMessage; ?>',<?PHP echo $this->lan->LanId; ?>);">
+                </form>
+            </div>
+        </div>
+        <?PHP
+        echo Com_Helper_Script::getInstance();
+        ?>
+        <script type="text/javascript">
+            contactUrl = "<?PHP echo Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, "/Service/Contact/Save") ?>";
+        </script>
+    </body>
+</html>

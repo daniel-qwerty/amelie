@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="page">
+        <div class="menuList">
+            <ul class="parent">
+                <?PHP
+                foreach ($this->parents as $index => $item) {
+                    $url = Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, $item->MenUrl);
+                    $active = false;
+                    $hasChilds = true;
+                    if ($item->MenId == $this->menu->MenId) {
+                        $active = true;
+                        if (count($this->equals) < 1) {
+                            $hasChilds = false;
+                        }
+                    }
+                    if ($item->MenTarget == "_blank") {
+                        $url = $item->MenUrl;
+                    }
+                    ?>
+                    <li class="parents <?PHP echo ($active ? "selected" : ""); ?> <?PHP echo ($hasChilds ? "" : "noChilds"); ?>" style="z-index:<?PHP echo (1000 - $index) ?>;">
+                        <a href="<?PHP echo $url; ?>"><?PHP echo $item->MenAlias; ?></a>
+                    </li>
+
+                    <?PHP
+                }
+                ?>
+
+            </ul>
+            <ul class="childs">
+                <?PHP
+                $actualUrl = Com_Helper_Url::getInstance()->urlBase . '/' . get("QUERY_STRING");
+                foreach ($this->equals as $item) {
+                    $url = Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, $item->MenUrl);
+                    $active = false;
+                    if ($actualUrl == $url) {
+                        $active = true;
+                    }
+                    if ($item->MenTarget == "_blank") {
+                        $url = $item->MenUrl;
+                    }
+                    ?>
+                    <li style="z-index:1000;" class="<?PHP echo ($active ? "selected" : ""); ?>">
+                        <a href="<?PHP echo $url; ?>"><?PHP echo $item->MenAlias; ?></a>
+                    </li>
+                    <?PHP
+                }
+                ?>
+            </ul>
+
+            <ul class="childs">
+                <?PHP
+                $actualUrl = Com_Helper_Url::getInstance()->urlBase . '/' . get("QUERY_STRING");
+                foreach ($this->friends as $item) {
+                    $url = Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, $item->MenUrl);
+                    $active = false;
+                    if ($actualUrl == $url) {
+                        $active = true;
+                    }
+                    if ($item->MenTarget == "_blank") {
+                        $url = $item->MenUrl;
+                    }
+                    ?>
+                    <li style="z-index:1000;" class="<?PHP echo ($active ? "selected" : ""); ?>">
+                        <a href="<?PHP echo $url; ?>"><?PHP echo $item->MenAlias; ?></a>
+                    </li>
+                    <?PHP
+                }
+                ?>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="data">
+                <div class="title">
+                    <?PHP
+                    echo $this->page->PagName;
+                    ?>
+                </div>
+                <div class="text">
+                    <?PHP
+                    echo $this->page->PagContent;
+                    ?>
+                </div>
+            </div>
+            <div class="image">
+                <div class="img">
+                    <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo $this->page->PagImage; ?>"/>
+                </div>
+                <div class="text">
+                    <?PHP echo $this->page->PagAditional; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

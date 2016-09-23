@@ -1,0 +1,23 @@
+<?php
+
+/**
+ *  Created by Ariel Ortuno Solis (@DarthCorvinous) 
+ */
+$form = new Com_Wizard_Form();
+$form->title = "Configuraci&oacute;n";
+
+$form->addAction("floppy-disk", "Guardar", null, "document.getElementById('saveForm').click();");
+$form->addAction("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase."/Admin");
+
+
+foreach($this->Configurations as $objConfiguration){
+    $objControl=new Com_Wizard_Form_Control();
+    $objControl->name=$objConfiguration->ConKey.'--'.$objConfiguration->ConId;
+    $objControl->label=$objConfiguration->ConAlias;
+    $objControl->default=$objConfiguration->ConValue;
+    $objControl->length=60;
+    $form->add($objControl);
+}
+
+
+$form->render();

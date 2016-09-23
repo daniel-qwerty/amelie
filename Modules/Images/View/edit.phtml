@@ -1,0 +1,66 @@
+<?PHP
+
+$form = new Com_Wizard_Form();
+$form->title = "Formulario Imagenes de pagina";
+
+$form->addAction("floppy-disk", "Guardar", null, "document.getElementById('saveForm').click();");
+$form->addAction("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . "/Admin/Images");
+
+foreach ($this->languages as $language) {
+    $active = false;
+    if ($this->Language == $language->LanId) {
+        $active = true;
+    }
+    $form->addTab($language->LanName, Com_Helper_Url::getInstance()->urlBase . "/Admin/Images/Edit/lan/" . $language->LanId . "/id/" . $this->Id, $active);
+}
+
+$control = new Com_Wizard_Form_Control_Hidden();
+$control->name = "Language";
+$control->default = $this->Language;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Alias";
+$control->label = "Alias";
+$control->default = $this->Alias;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_File();
+$control->name = "File";
+$control->label = "Imagen";
+$control->default = $this->File;
+$control->required = true;
+$control->isImage = true;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Editor();
+$control->name = "Description";
+$control->label = "Descripcion";
+$control->default = $this->Description;
+$control->required = FALSE;
+$control->rows = 3;
+$control->addParameter("style ", "height:120px;
+            ");
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Url";
+$control->label = "Url";
+$control->default = $this->Url;
+$control->required = FALSE;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Select();
+$control->name = "Status";
+$control->label = "Estado";
+$control->default = $this->Status;
+$control->required = true;
+$control->addItem('1', 'Habilitado');
+$control->addItem('0', 'Bloqueado');
+
+$form->add($control);
+
+$form->render();

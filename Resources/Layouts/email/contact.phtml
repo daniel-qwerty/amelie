@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>{Title}</title>
+        <style type="text/css">
+            html,
+            body{
+                margin:0px;
+                padding:0px;
+            }
+            *{
+                font-family: Arial;
+            }
+            .header{
+                background-color: #158680;
+                width:98%;
+                padding:1%;
+                float:left;
+                display:block;
+                position:relative;
+                clear:both;
+            }
+            .body{
+                width:98%;
+                padding:1%;
+                float:left;
+                display:block;
+                position:relative;
+                clear:both;
+                background-color: #FFF;
+            }
+            .footer{
+                background-color: #333333;
+                width:98%;
+                padding:1%;
+                float:left;
+                display:block;
+                position:relative;
+                clear:both;
+                color:#747474;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <img src="{Logo}">
+        </div>
+        <div class="body">
+            <p>Fecha: {Contact.Date}</p>
+            <p>Nombre: {Contact.Name}</p>
+            <p>Correo Electr&oacute;nico: {Contact.Email}</p>
+            <p>Contenido: {Contact.Content}</p>
+        </div>  
+        <div class="footer">
+            {Footer}
+        </div>    
+    </body>
+</html>

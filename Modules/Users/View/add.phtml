@@ -1,0 +1,77 @@
+<?PHP
+
+$form = new Com_Wizard_Form();
+$form->title = "Formulario Usuarios";
+
+$form->addAction("floppy-disk", "Guardar", null, "document.getElementById('saveForm').click();");
+$form->addAction("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . "/Admin/Users");
+
+
+$control = new Com_Wizard_Form_Control_Select();
+$control->name = "Type";
+$control->label = "Grupo";
+$control->default = $this->Type;
+$control->required = true;
+
+foreach ($this->Types as $type) {
+    $control->addItem($type->TypId, $type->TypName);
+}
+
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Name";
+$control->label = "Nombre Completo";
+$control->default = $this->Name;
+$control->required = true;
+$control->length = 50;
+
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_File();
+$control->name = "Image";
+$control->label = "Image";
+$control->default = $this->Image;
+$control->required = true;
+$control->isImage = true;
+
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Mail";
+$control->label = "Mail";
+$control->default = $this->Mail;
+$control->required = true;
+$control->length = 50;
+
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Login";
+$control->label = "Login";
+$control->default = $this->Login;
+$control->required = true;
+$control->length = 50;
+
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Password();
+$control->name = "Password";
+$control->label = "Password";
+$control->default = $this->Password;
+$control->required = FALSE;
+$control->length = 50;
+
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Select();
+$control->name = "Estado";
+$control->label = "Estado";
+$control->default = $this->Estado;
+$control->required = true;
+$control->addItem('1', 'Publicado');
+$control->addItem('0', 'No Publicado');
+
+$form->add($control);
+
+$form->render();

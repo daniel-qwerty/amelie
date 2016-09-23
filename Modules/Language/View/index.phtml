@@ -1,0 +1,23 @@
+<?PHP
+
+$db = new Entities_Language();
+$grid = new Com_Wizard_Grid();
+$grid->title = "Listado Idiomas";
+$grid->setIdField("LanId");
+$grid->setQuery($db->getList());
+$grid->setAlias(array("LanCode" => "Codigo", "LanName" => "Nombre", "LanDefault" => "Por Defecto"));
+$grid->setFilters(array("LanCode" => get('LanCode'), "LanName" => get('LanName')));
+
+$toolBar = new Com_Wizard_ToolBar();
+$toolBar->add("plus", "Nuevo", Com_Helper_Url::getInstance()->urlBase . '/Admin/Language/Add');
+$toolBar->add("search", "Filtrar", null, "showHide('.filters')");
+$toolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . '/Admin');
+$grid->setToolBar($toolBar);
+
+$grid->addAction("pencil", "Editar", Com_Helper_Url::getInstance()->urlBase . '/Admin/Language/Edit/id/_ID_');
+$grid->addAction("file", "Archivo de Idioma", Com_Helper_Url::getInstance()->urlBase . '/Admin/Language/File/id/_ID_');
+$grid->addAction("trash", "Eliminar", null, "confirm('Esta seguro de eliminar el registro?')?location.href='" . Com_Helper_Url::getInstance()->urlBase . '/Admin/Language/Delete/id/_ID_' . "':'';");
+
+$grid->customField("LanDefault", array("value" => array('1' => 'Si', '0' => 'No')));
+
+$grid->render();

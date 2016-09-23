@@ -1,0 +1,47 @@
+<div class="share">
+    <div class="container">
+        <div class="title">
+            <?PHP echo $this->translator->shareTitle; ?>
+        </div>
+        <div class="message">
+            <?PHP
+            if ($this->message != "") {
+                ?>
+                <div class="text">
+                    <?PHP echo $this->message; ?>
+                </div>
+                <?PHP
+            }
+            ?>
+        </div>
+        <div class="searchBar">
+            <form method="post" enctype="multipart/form-data">
+                <div class="control">
+                    <label><?PHP echo $this->translator->shareName; ?></label>
+                    <input name="name" required="true"/>
+                </div>
+                <div class="control">
+                    <label><?PHP echo $this->translator->shareEmail; ?></label>
+                    <input name="email" required="true"/>
+                </div>
+                <div class="control">
+                    <label><?PHP echo $this->translator->shareContent; ?></label>
+                    <textarea name="content" rows="7" required="true"></textarea>
+                </div>
+                <div class="control">
+                    <label><?PHP echo $this->translator->shareImage; ?></label>
+                    <input type="file" name="image">
+                </div>
+                <div class="control">
+                    <label><?PHP echo $this->translator->shareDoc; ?></label>
+                    <input type="file" name="doc">
+                </div>
+                <div class="control">
+                    <input type="submit" value="<?PHP echo $this->translator->send; ?>"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,98 @@
+<?PHP
+
+$form = new Com_Wizard_Form();
+$form->title = "Formulario P&aacute;gina";
+
+$form->addAction("floppy-disk", "Guardar", null, "document.getElementById('saveForm').click();");
+$form->addAction("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . "/Admin/Pages");
+
+$form->addTab("Idioma por Defecto (" . $this->languages[0]->LanName . ")", "", true);
+
+$control = new Com_Wizard_Form_Control_Hidden();
+$control->name = "Language";
+$control->default = $this->Language;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Name";
+$control->label = "Nombre";
+$control->default = $this->Name;
+$control->length = 50;
+$control->required = true;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Text();
+$control->name = "MetaTags";
+$control->label = "MetaTags (SEO)";
+$control->default = $this->MetaTags;
+$control->required = true;
+$control->rows = 3;
+$control->addParameter("style ", "height:120px;");
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Text();
+$control->name = "Description";
+$control->label = "Descripcion (SEO)";
+$control->default = $this->Description;
+$control->required = true;
+$control->rows = 3;
+$control->addParameter("style ", "height:120px;");
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Editor();
+$control->name = "Content";
+$control->label = "Contenido";
+$control->default = $this->Content;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Text();
+$control->name = "Aditional";
+$control->label = "Contenido Adicional";
+$control->default = $this->Aditional;
+$control->rows = 3;
+$control->addParameter("style ", "height:120px;");
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_File();
+$control->name = "Image";
+$control->label = "Imagen";
+$control->default = $this->Image;
+$control->isImage = true;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Select();
+$control->name = "Home";
+$control->label = "Inicial";
+$control->default = $this->Home;
+$control->required = true;
+$control->addItem('0', 'No');
+$control->addItem('1', 'Si');
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Select();
+$control->name = "Layout";
+$control->label = "Plantilla";
+$control->default = $this->Layout;
+$control->required = true;
+$control->addItem('page', 'P&aacute;gina');
+$control->addItem('contact', 'Contacto');
+$control->addItem('rooms', 'Habitaciones');
+$control->addItem('restaurant', 'Restaurante');
+$control->addItem('services', 'Servicios');
+$control->addItem('halls', 'Salones');
+$control->addItem('gallery', 'Galeria');
+$control->addItem('reservations', 'Reservas');
+$control->addItem('template1', 'Plantilla 1');
+$control->addItem('index', 'Inicial');
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Select();
+$control->name = "Status";
+$control->label = "Estado";
+$control->default = $this->Status;
+$control->required = true;
+$control->addItem('1', 'Habilitado');
+$control->addItem('0', 'Bloqueado');
+$form->add($control);
+
+$form->render();

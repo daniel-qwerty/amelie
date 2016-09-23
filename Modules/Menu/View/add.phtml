@@ -1,0 +1,108 @@
+<?PHP
+
+$form = new Com_Wizard_Form();
+$form->title = "Formulario Menu";
+
+$form->addAction("floppy-disk", "Guardar", null, "document.getElementById('saveForm').click();");
+$form->addAction("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . "/Admin/Menu");
+
+$form->addTab("Idioma por Defecto (" . $this->languages[0]->LanName . ")", "", true);
+
+$control = new Com_Wizard_Form_Control_Hidden();
+$control->name = "Language";
+$control->default = $this->Language;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_HSelect();
+$control->name = "Parent";
+$control->label = "Padre";
+$control->default = $this->Parent;
+$control->length = 50;
+foreach ($this->Parents as $objItem) {
+    $control->addItem($objItem->MenId, $objItem->MenAlias, $objItem->MenParentId);
+}
+$form->add($control);
+
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Alias";
+$control->label = "Alias";
+$control->default = $this->Alias;
+$control->length = 50;
+$control->required = true;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Url";
+$control->label = "Enlace";
+$control->default = $this->Url;
+$control->length = 50;
+$control->required = true;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Select();
+$control->name = "Target";
+$control->label = "Abrir en";
+$control->default = $this->Target;
+$control->addItem('_self', 'Mismo Lugar');
+$control->addItem('_blank', 'Nueva P&aacute;gina');
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_File();
+$control->name = "Image";
+$control->label = "Imagen";
+$control->default = $this->Image;
+$control->isImage = true;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Text();
+$control->name = "Description";
+$control->label = "Descripcion";
+$control->default = $this->Description;
+$control->rows = 3;
+$control->addParameter("style ", "height:120px;");
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "X";
+$control->label = "Posicion X";
+$control->default = $this->X;
+$control->length = 50;
+$control->required = true;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Y";
+$control->label = "Posicion Y";
+$control->default = $this->Y;
+$control->length = 50;
+$control->required = true;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "W";
+$control->label = "Ancho";
+$control->default = $this->W;
+$control->length = 50;
+$control->required = true;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "H";
+$control->label = "Alto";
+$control->default = $this->H;
+$control->length = 50;
+$control->required = true;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Select();
+$control->name = "Status";
+$control->label = "Estado";
+$control->default = $this->Status;
+$control->required = true;
+$control->addItem('1', 'Habilitado');
+$control->addItem('0', 'Bloqueado');
+
+$form->add($control);
+
+$form->render();

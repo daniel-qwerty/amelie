@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="searchBar">
+        <div class="message">
+            <?PHP echo $this->translator->searchMessage; ?>
+        </div>
+        <form method="post">
+            <input type="text" name="pattern" id="pattern" placeholder="<?PHP echo $this->translator->searchPlaceHolder; ?>" value="<?PHP echo get('pattern'); ?>">
+        </form>
+        <div class="message2">
+            <?PHP echo str_replace("_NUMBER_", count($this->list), $this->translator->searchResults); ?>
+        </div>
+    </div>
+    <div class="results">
+        <?PHP
+        foreach ($this->list as $obj) {
+            ?>
+            <div class="item">
+                <div class="image">
+                    <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo $obj->image; ?>"/>
+                </div>
+                <div class="data">
+                    <div class="title">
+                        <?PHP echo $obj->title; ?>
+                    </div>
+                    <div class="resume">
+                        <?PHP echo $obj->resume; ?>
+                    </div>
+                    <div class="date">
+                        <?PHP
+                        $date = ($obj->date == "" ? date("d/m/Y") : $obj->date);
+                        echo $this->translator->date . " : " . $date;
+                        ?>
+                    </div>
+                    <div class="seeMore">
+                        <?PHP
+                        $url = "";
+                        if ($obj->type == "new") {
+                            $url = "article/" . $obj->url;
+                        } else if ($obj->type == "page") {
+                            $url = "page/" . $obj->url;
+                        } else if ($obj->type == "blog") {
+                            $url = "note/" . $obj->url;
+                        }
+                        else if ($obj->type == "galleries") {
+                            $url = "gallery/" . $obj->url;
+                        }
+                        ?>
+                        <a href="<?PHP echo Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, $url) ?>"><?PHP echo $this->translator->readMore; ?></a>
+                    </div>
+                </div>
+            </div>
+            <?PHP
+        }
+        ?>
+    </div>
+</div>

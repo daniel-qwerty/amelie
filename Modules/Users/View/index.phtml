@@ -1,0 +1,22 @@
+<?PHP
+
+$db = new Entities_User();
+$grid = new Com_Wizard_Grid();
+$grid->title = "Listado Usuarios";
+$grid->setIdField("UserId");
+$grid->setQuery($db->funGetList());
+$grid->setAlias(array("TypName" => "Grupo", "UserName" => "Nombre Completo", "UserMail" => "Mail", "UserLogin" => "Login", "UserEstado" => "Estado"));
+$grid->setFilters(array("UserName" => get('UserName'), "UserLogin" => get('UserLogin')));
+
+$toolBar = new Com_Wizard_ToolBar();
+$toolBar->add("plus", "Nuevo", Com_Helper_Url::getInstance()->urlBase . '/Admin/Users/Add');
+$toolBar->add("search", "Filtrar", null, "showHide('.filters')");
+$toolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . '/Admin');
+$grid->setToolBar($toolBar);
+
+$grid->addAction("pencil", "Editar", Com_Helper_Url::getInstance()->urlBase . '/Admin/Users/Edit/id/_ID_');
+$grid->addAction("trash", "Eliminar", null, "confirm('Esta seguro de eliminar el registro?')?location.href='" . Com_Helper_Url::getInstance()->urlBase . '/Admin/Users/Delete/id/_ID_' . "':'';");
+
+$grid->customField("UserEstado", array("value" => array('1' => 'Publicado', '0' => 'No Publicado')));
+
+$grid->render();

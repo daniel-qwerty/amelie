@@ -1,0 +1,23 @@
+<?PHP
+
+$db = new Entities_SlideShow();
+$grid = new Com_Wizard_Grid();
+$grid->title = "Listado SlideShows";
+$grid->setIdField("SliId");
+$grid->setLanField("SliLanId");
+$grid->setQuery($db->getListWithLanguages());
+$grid->setAlias(array("LanName" => "Idioma", "SliTitle" => "Titulo", "SliLink" => "Url", "SliStatus" => "Estado"));
+$grid->setFilters(array("SliTitle" => get('SliTitle')));
+
+$toolBar = new Com_Wizard_ToolBar();
+$toolBar->add("plus", "Nuevo", Com_Helper_Url::getInstance()->urlBase . '/Admin/SlideShows/Add');
+$toolBar->add("search", "Filtrar", null, "showHide('.filters')");
+$toolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . '/Admin');
+$grid->setToolBar($toolBar);
+
+$grid->addAction("pencil", "Editar", Com_Helper_Url::getInstance()->urlBase . '/Admin/SlideShows/Edit/lan/_LANGUAGE_/id/_ID_');
+$grid->addAction("trash", "Eliminar", null, "confirm('Esta seguro de eliminar el registro?')?location.href='" . Com_Helper_Url::getInstance()->urlBase . '/Admin/SlideShows/Delete/id/_ID_' . "':'';");
+
+$grid->customField("SliStatus", array("value" => array('1' => 'Habilitado', '0' => 'Bloqueado')));
+
+$grid->render();

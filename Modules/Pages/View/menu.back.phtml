@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="page fullpage">
+        <div class="content">
+            <div class="data">
+                <div class="title">
+                    <?PHP
+                    echo $this->page->PagName;
+                    ?>
+                </div>
+                <div class="text">
+                    <?PHP
+                    echo $this->page->PagContent;
+                    ?>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="links">
+                <?PHP
+                foreach ($this->childs as $child) {
+                    $url = Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, $child->MenUrl);
+                    if ($child->MenTarget == "_blank") {
+                        $url = $child->MenUrl;
+                    }
+                    ?>
+                    <div class="link">
+                        <a href="<?PHP echo $url; ?>">
+                            <div class="image">
+                                <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo $child->MenImage; ?>"/>
+                                <div class="name">
+                                    <?PHP echo $child->MenAlias; ?>
+                                </div>
+                            </div>
+                            <div class="description">
+                                <div class="name">
+                                    <?PHP
+                                    echo $child->MenAlias;
+                                    ?>
+                                </div>
+                                <?PHP echo $child->MenDescription; ?>
+                            </div>
+                        </a>
+                    </div>
+                    <?PHP
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

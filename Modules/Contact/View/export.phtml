@@ -1,0 +1,32 @@
+<?PHP
+$report = new Com_Wizard_Report();
+$report->title = "Listado de Contactos";
+$report->open();
+?>
+<table>
+    <tr class="cabecera">
+        <td>Nro.</td>
+        <td>Idioma</td>
+        <td>Nombre</td>
+        <td>Correo Electronico</td>
+        <td>Mensaje</td>
+        <td>Fecha de Registro</td>
+    </tr>
+    <?PHP
+    foreach ($this->list as $index => $obj) {
+        ?>
+        <tr class="<?PHP echo ($index % 2 == 0 ? 'blanco' : 'gris'); ?>">
+            <td><?PHP echo ($index + 1); ?></td>
+            <td><?PHP echo $obj->LanName; ?></td>
+            <td><?PHP echo $obj->ConName; ?></td>
+            <td><?PHP echo $obj->ConEmail; ?></td>
+            <td><?PHP echo $obj->ConMessage; ?></td>
+            <td><?PHP echo $obj->ConDate; ?></td>
+        </tr>
+        <?PHP
+    }
+    ?>
+</table>
+<?PHP
+$report->close();
+?>

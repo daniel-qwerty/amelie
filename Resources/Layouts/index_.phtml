@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="If you are planning to buy land in Hobe Sound to build the farm of your dreams, we have a selection of the best plots currently available in some of the most sought after areas of the coast, and also at a very competitive price.">
+        <meta name="author" content="Hode Sound Equestrian Farms">
+        <meta name="robots" content="index,follow">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="Hode Sound Equestrian Farms">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="theme-color" content="#db5945">
+        <title><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titlePage')->TxtDescription; ?></title>
+
+        <!-- Facebook -->
+        <meta property="og:locale" content="en_GB">
+        <meta property="og:url"
+              content="<?PHP echo Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, 'page/index.html/'); ?>">
+        <meta property="og:title" content="Hode Sound Equestrian Farms">
+        <meta property="og:site_name" content="Hobe Sound Equestrian Farms">
+        <meta property="og:description" content="If you are planning to buy land in Hobe Sound to build the farm of your dreams, we have a selection of the best plots currently available in some of the most sought after areas of the coast, and also at a very competitive price.">
+        <meta property="og:image"
+              content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/about-us.jpg">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="80">
+        <meta property="og:image:height" content="80">
+        <meta property="og:type" content="website">
+
+        <!-- Fav and Touch Icons -->
+        <meta name="msapplication-TileColor" content="#d9534f">
+        <meta name="msapplication-TileImage"
+              content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/ms-icon-144x144.png">
+        <meta name="msapplication-config"
+              content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public//favicons/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="apple-touch-icon" sizes="57x57"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-32x32.png"
+              sizes="32x32">
+        <link rel="icon" type="image/png"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/android-192x192.png"
+              sizes="192x192">
+        <link rel="icon" type="image/png"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-96x96.png"
+              sizes="96x96">
+        <link rel="icon" type="image/png"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-16x16.png"
+              sizes="16x16">
+        <link rel="manifest" href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/manifest.json">
+        <link rel="shortcut icon"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon.ico"
+              type="image/x-icon"/>
+        <!-- Google Fonts -->
+        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+
+        <!-- Custom Fonts -->
+
+        <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+              type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+
+        <?PHP
+        Com_Helper_Style::getInstance()->addFile("Public/bootstrap.css")
+                ->addFile("Public/hobesound.css")
+                ->addFile("Public/font-awesome.min.css")
+                ->addFile("Public/sequence-theme.basic.min.css")
+                ->addFile("Public/jquery.flexisel.css")
+                ->addFile("Public/sweetalert.css")
+                ->addFile("Public/slick.css")
+                ->addFile("Public/slick-theme.css");
+        echo Com_Helper_Style::getInstance();
+        ?>
+    </head>
+    <body id="page-top" class="site-left" data-spy="scroll" data-target=".navbar-fixed-top">
+
+        <div class="site-header">
+            <div class="header-logo">
+
+                <a href="<?PHP echo Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, 'page/index.html'); ?>"
+                   title="HOBE SOUND">
+                    <img class="img-responsive"
+                         src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/logo-hobesound.jpg"
+                         alt="HOBE SOUND">
+                </a>
+
+            </div>
+            <div class="language-selector"><a class="lang_link lang_active"
+                                              href="<?PHP echo Com_Helper_Url::getInstance()->generateUrl("en", ""); ?>">en</a>/<a
+                                              class="lang_link " href="<?PHP echo Com_Helper_Url::getInstance()->generateUrl("es", ""); ?>">es</a></div>
+            <div class="header-menu">
+                <nav style="display: none">
+                    <ul id="menu-inneramenu" class="">
+                        <?PHP Menu_Widget_Menu::getInstance()->setLan($this->lan)->setParent(1)->render(); ?>
+                    </ul>
+                    <div class="contact-social">
+                        <ul class="social-icons clearfix">
+                            <li class="col-xs-6"><a
+                                    href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkFacebook')->LinUrl; ?>"
+                                    target="_blank" title=""><i
+                                        class="fa fa-facebook"></i></a></li>
+                            <li class="col-xs-6"><a
+                                    href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkFacebook')->LinUrl; ?>"
+                                    target="_blank" title=""><i
+                                        class="fa fa-instagram"></i></a></li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="header-toggle">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+
+        <header class="intro">
+            <div class="intro-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div id="sequence" class="seq">
+                            <div class="seq-screen">
+                                <ul class="seq-canvas">
+                                    <?PHP SlideShows_Widget_Slideshow::getInstance()->setLan($this->lan)->setCat("Home")->render(); ?>
+
+                                </ul>
+                            </div>
+
+                            <ul rel="sequence" class="seq-pagination" role="navigation" aria-label="Pagination">
+                                <?PHP SlideShows_Widget_Slideshow::getInstance()->setLan($this->lan)->setCat("Home")->renderPag(); ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <section id="about" class="container content-section">
+            <div class="row item-noticias active bg-white" rel="1">
+                <div class="col-lg-12 text-center">
+                    <h2 class="color-2"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleAboutUs')->TxtDescription; ?></h2>
+                </div>
+
+                <div class="col-lg-5 col-lg-offset-1 p-content">
+
+
+                    <p><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtAboutUs')->TxtDescription; ?></p>
+                </div>
+
+                <div class="col-lg-5 p-image">
+                    <img class="img-responsive" src="<?= Com_Helper_Url::getInstance()->getImage(); ?>/Public/about-us.jpg"
+                         alt="">
+                </div>
+            </div>
+        </section>
+
+        <section id="sports" class="content-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <h2 class="text-red text-center color-5"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleSports')->TxtDescription; ?></h2>
+
+                    <div class="col-sm-10 col-md-offset-1">
+                        <ul id="sports-scroll">
+                            <?PHP Sports_Widget_Gallery::getInstance()->setLan($this->lan)->setLimit(6)->render(); ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="real-state" class=" content-section bg-color-10">
+            <div class="container-fluid">
+                <div class="container">
+                    <h2 class="text-red text-center color-5"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleRealState')->TxtDescription; ?></h2>
+
+                    <div class="row bg-white">
+                        <div class="col-lg-6 p-content visible-lg hidden-xs"
+                             style="background: url(<?= Com_Helper_Url::getInstance()->getImage(); ?>/Public/about-us.jpg) no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;">
+                        </div>
+                        <div class="col-lg-6 p-content bg-color-5">
+                            <div class="servicio-header">
+                                <h3 class="color-2"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'subTitleRealState')->TxtDescription; ?></h3>
+                            </div>
+                            <p><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtRealState')->TxtDescription; ?></p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-actions text-center">
+                        <a class="btn btn-hobesound-green bg-color-2"
+                           href="<?PHP echo Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, "realstate") . "/"; ?>"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtViewMore')->TxtDescription; ?></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hobe-sound-preserv" class="container-fluid content-section bg-color-6">
+            <div class="container">
+                <div class="row bg-white">
+                    <h2 class="text-red text-center color-2"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titlePreserv')->TxtDescription; ?></h2>
+
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <div class="row">
+                            <div class="hsp-items bg-color-5">
+                                <?PHP Preserv_Widget_Gallery::getInstance()->setLan($this->lan)->setLimit(6)->render(); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="container-fluid content-section bg-color-10">
+            <div class="row">
+                <h2 class="bg-color-7 color-11 text-center"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleNews')->TxtDescription; ?></h2>
+
+                <div class="container" style="margin-top: 15px">
+                    <div class="news-items">
+                        <?PHP News_Widget_News::getInstance()->setLan($this->lan)->setLimit(6)->setCategory("1")->render(); ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="life-style" class="container content-section text-center">
+            <div class="row">
+                <h2 class="text-red text-center color-2"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleLifeStyle')->TxtDescription; ?></h2>
+
+
+                <div class="col-md-4 ls-shopping">
+                    <img class="img-responsive"
+                         src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/ic_shopping.png" alt=""/>
+
+
+                    <h2 class="text-red">Shopping</h2>
+                    <ul class="fs-scroll">
+                        <?PHP Life_Widget_List::getInstance()->setLan($this->lan)->setCategory("Shopping")->render(); ?>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 ls-beach">
+                    <img class="img-responsive"
+                         src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/ic_beach.png" alt=""/>
+
+
+
+                    <h2 class="text-red">Beach</h2>
+                    <ul class="fs-scroll">
+                        <?PHP Life_Widget_List::getInstance()->setLan($this->lan)->setCategory("Beach")->render(); ?>
+                    </ul>
+                </div>
+                <div class="col-md-4 ls-restaurant">
+
+                    <img class="img-responsive"
+                         src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/ic_restaurant.png" alt=""/>
+
+
+
+                    <h2 class="text-red">Restaurants</h2>
+                    <ul class="fs-scroll">
+                        <?PHP Life_Widget_List::getInstance()->setLan($this->lan)->setCategory("Restaurants")->render(); ?>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="container-fluid content-section text-center">
+            <div class="row">
+                <h2 class="bg-color-3 color-5"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtLocation')->TxtDescription; ?></h2>
+
+                <div id="map"></div>
+            </div>
+        </section>
+
+        <section id="contact" class="container-fluid content-section text-center">
+            <div class="row">
+                <h2 class="bg-color-1 color-5"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtContact')->TxtDescription; ?></h2>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+
+                            <ul class="list-unstyled">
+                                <li style="font-size: 14px;">
+                                    <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtAddress')->TxtDescription; ?>
+                                </li>
+                                <li style="font-size: 14px;"><i
+                                        class="fa fa-phone fa-fw"></i> <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtPhone')->TxtDescription; ?>
+                                </li>
+                                <li style="font-size: 14px;"><i class="fa fa-envelope-o fa-fw"></i> <a
+                                        href="mailto:<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtEmail')->TxtDescription; ?>"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtEmail')->TxtDescription; ?></a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="col-md-4 col-md-offset-2">
+                            <form method="post">
+                                <div class="form-group">
+                                    <input type="Name" class="form-control" id="contacto-nombre" name="contacto-nombre"
+                                           placeholder="Name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="Email" class="form-control" id="contacto-email" name="contacto-emial"
+                                           placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="contacto-mensaje" name="contacto-mensaje"
+                                              placeholder="Message" rows="4"></textarea>
+                                </div>
+                                <div class="form-group text-right">
+
+                                    <input type="button" class="btn btn-hobesound-green"
+                                           value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtContactEnviar')->TxtDescription; ?>"
+                                           onclick="saveContact('error message', 'enviado',<?PHP echo $this->lan->LanId; ?>);">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--FOOTER-->
+        <?PHP Pages_Widget_Footer::getInstance()->render(); ?>
+
+
+
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        <!-- Google Map -->
+        <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&amp;sensor=false"></script>
+        <?php
+        Com_Helper_Script::getInstance()->addFile("Public/jquery.js")
+                ->addFile("Public/bootstrap.min.js")
+                ->addFile("Public/jquery.easing.min.js")
+                ->addFile("Public/imagesloaded.pkgd.min.js")
+                ->addFile("Public/sequence.min.js")
+                ->addFile("Public/sequence-theme.basic.min.js")
+                ->addFile("Public/jquery.flexisel.js")
+                ->addFile("Public/slick.min.js")
+                ->addFile("Public/sweetalert.min.js")
+                ->addFile("Public/hobesound.js");
+
+
+        echo Com_Helper_Script::getInstance();
+        ?>
+    </body>
+</html>

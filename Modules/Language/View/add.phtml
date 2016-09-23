@@ -1,0 +1,35 @@
+<?PHP
+
+$form = new Com_Wizard_Form();
+$form->title = "Formulario Idioma";
+
+$form->addAction("floppy-disk", "Guardar", null, "document.getElementById('saveForm').click();");
+$form->addAction("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . "/Admin/Language");
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Code";
+$control->label = "Codigo";
+$control->default = $this->Code;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Name";
+$control->label = "Name";
+$control->default = $this->Name;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Select();
+$control->name = "Default";
+$control->label = "Por Defecto";
+$control->default = $this->Default;
+$control->required = true;
+$control->addItem('1', 'Si');
+$control->addItem('0', 'No');
+
+$form->add($control);
+
+$form->render();

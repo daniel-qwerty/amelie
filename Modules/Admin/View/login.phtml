@@ -1,0 +1,18 @@
+<?PHP
+$form = new Com_Wizard_Form();
+$form->title = "Inicio Sesi&oacute;n";
+$form->addCssClass("form-login");
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "User";
+$control->label = "Nombre de Usuario";
+$control->placeHolder = "usuario";
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Password();
+$control->name = "Password";
+$control->label = "C&oacute;digo de Acceso";
+$control->placeHolder = "usuario";
+$form->add($control);
+
+$form->render();
