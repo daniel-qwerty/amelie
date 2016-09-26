@@ -1,7 +1,5 @@
 <?php
-
 class Users_Model_User extends Com_Module_Model {
-
     /**
      *
      * @return Users_Model_User

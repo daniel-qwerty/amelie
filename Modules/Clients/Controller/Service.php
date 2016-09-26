@@ -13,11 +13,33 @@ class Clients_Controller_Service extends Com_Module_Controller_Json
                 Clients_Model_Client::getInstance()->doInsert($obj, null);
 
                 $this->sendEmail($obj);
-                echo json_encode($obj->Cupon);
+//                echo $this->drawImage($obj->Cupon);
+                echo json_encode($this->drawImage($obj->Cupon));
+//                echo 'http://localhost/amelie/cupones/cupon-zWxo1Ph8RM.jpg';
             } else
                 echo json_encode(0);
 
         }
+    }
+
+    function drawImage($codigo)
+    {
+        // Create Image From Existing File
+        $jpg_image = imagecreatefromjpeg(DIR_PATH . '/cupones/cupon.jpg');
+        // Allocate A Color For The Text
+        $white = imagecolorallocate($jpg_image, 255, 255, 255);
+
+        $font = DIR_PATH . '/cupones/HelveticaLTStd-Bold.ttf';
+
+        // Add some shadow to the text
+        imagettftext($jpg_image, 20, 0, 370, 68, $white, $font, $codigo);
+        $url = DIR_PATH . '/cupones/cupon-' .$codigo.'.jpg';
+        // Send Image to Browser
+        imagejpeg($jpg_image,$url ,90);
+
+        // Clear Memory
+        imagedestroy($jpg_image);
+        return 'http://'.$_SERVER['HTTP_HOST'].'/amelie/cupones/cupon-'. $codigo .'.jpg';
     }
 
     public function sendEmail()
@@ -27,7 +49,7 @@ class Clients_Controller_Service extends Com_Module_Controller_Json
 
 
 // título
-        $título = 'Recordatorio de cumpleaños para Agosto';
+        $titulo = 'Recordatorio de cumpleaños para Agosto';
 
 // mensaje
         $mensaje = '
@@ -63,7 +85,7 @@ class Clients_Controller_Service extends Com_Module_Controller_Json
         $cabeceras .= 'Bcc: birthdaycheck@example.com' . "\r\n";
 
 // Enviarlo
-        mail($para, $título, $mensaje, $cabeceras);
+        mail($para, $titulo, $mensaje, $cabeceras);
 
     }
 }

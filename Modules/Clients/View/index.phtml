@@ -16,7 +16,7 @@ $toolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . '/Ad
 $grid->setToolBar($toolBar);
 
 $grid->addAction("pencil", "Editar", Com_Helper_Url::getInstance()->urlBase . '/Admin/Clients/Edit/id/_ID_');
-$grid->addAction("trash", "Eliminar", null, "confirm('Esta seguro de eliminar el registro?')?location.href='" . Com_Helper_Url::getInstance()->urlBase . '/Admin/Clients/Delete/id/_ID_' . "':'';");
+$grid->addAction("ok", "Cupón", null, "confirm('Esta seguro de marcar este cupón como canjeado ?')?location.href='" . Com_Helper_Url::getInstance()->urlBase . '/Admin/Clients/Edit/id/_ID_' . "':'';");
 
 $grid->customField("CliStatus", array("value" => array('1' => 'Leido', '0' => 'No Leido')));
 

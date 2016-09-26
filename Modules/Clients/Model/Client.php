@@ -25,16 +25,16 @@ class Clients_Model_Client extends Com_Module_Model {
         Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_INFORMATION, "Registro Insertado");
     }
 
-    public function doUpdate($intId, Com_Object $obj) {
+    public function doUpdate($intId, $status) {
         $db = new Entities_Client();
         $db->CliId = $intId;
-        $db->CliName = $obj->Name;
+        /*$db->CliName = $obj->Name;
         $db->CliCi = $obj->Ci;
         $db->CliCity = $obj->City;
         $db->CliCupon = $obj->Cupon;
         $db->CliEmail = $obj->Email;
-        $db->CliPhone = $obj->Phone;
-        $db->CliStatus = $obj->Status;
+        $db->CliPhone = $obj->Phone;*/
+        $db->CliStatus = $status;
         $db->action = ACTION_UPDATE;
         $db->save();
         Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_INFORMATION, "Registro Actualizado");

@@ -24,7 +24,7 @@ function saveContact(errorMesage, Message) {
     var ci = $('#ci').val();
     var city = $('#city').val();
     var phone = $('#phone').val();
-    var cupon = rand_code(caracteres, longitud)
+    var cupon = rand_code(caracteres, longitud);
 
 
     if (nombre === "" || email === "" || ci === "") {
@@ -36,7 +36,9 @@ function saveContact(errorMesage, Message) {
                 type: "POST",
                 url: urlBase + "/Service/Clients/Save",
                 data: {Name: nombre, Email: email, Ci: ci, City: city, Phone: phone, Cupon: cupon, Status: 0}
-            }).done(function (data) {
+
+            }).success(function (data) {
+                alert(data);
                 if (data != 0) {
                     swal("Received", "Se genero su cupón exitosamente", "success");
                     $('#name').val("");
@@ -44,6 +46,8 @@ function saveContact(errorMesage, Message) {
                     $('#ci').val("");
                     $('#city').val("");
                     $('#phone').val("");
+                    $("#modal-content").html( '<img src=" ' + data + ' " />' );
+                    modal.style.display = "block";
                 }
                 else
                     swal("Lo Siento", "Usted ya generó un cupón anteriormente", "error");
@@ -73,6 +77,45 @@ function rand_code(chars, lon) {
     return code;
 
 }
+
+// nuevo -------------------------------------------------------------------------------
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+//btn.onclick = function() {
+//
+//    $.ajax({
+//        url: "http://localhost/amelie/Resources/Script/Public/cupon.php",
+//        context: document.body
+//    }).success(function(data) {
+//        $("#modal-content").html( '<img src=" ' + data + ' " />' );
+//        modal.style.display = "block";
+//    }).fail(function() {
+//        alert("error");
+//    });
+//
+//    //
+//}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+// hasta aqui --------------------------------------------------------------------------
 
 
 // jQuery to collapse the navbar on scroll

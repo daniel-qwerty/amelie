@@ -56,3 +56,6 @@ date_default_timezone_set('America/La_Paz');
 define('MESSAGE_EXCLAMATION', 'Exclamation');
 define('MESSAGE_WARNING', 'Warning');
 define('MESSAGE_INFORMATION', 'Information');
+
+define('DIR_PATH',dirname(__FILE__));
+
